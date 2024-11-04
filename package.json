@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "latest": "^0.2.0",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}
