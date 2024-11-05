@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import GoalCard from "./components/GoalCard";
+import GoalForm from "./components/GoalForm";
 export interface GoalsPropWithId
 {
     titel: string;
@@ -9,7 +10,9 @@ export interface GoalsPropWithId
 }
 export default function App()
 {
-  const[goals,setGoals]=useState<GoalsPropWithId[]> ([])
+  const [goals, setGoals] = useState<GoalsPropWithId[]>([])
+  const[inputTitle,setInputTitle]=useState<string>("")
+  const[inputDesc,setInputDesc]=useState<string>("")
   let test = { imgAlt: "image sdsdbhasfdb", imgSrc: "/goals.jpg" };
   /*Add new card */
   function handleAddNewGoal()
@@ -17,12 +20,15 @@ export default function App()
     setGoals((prev) =>
     {
       const newGoal:GoalsPropWithId= {
-        titel: "Learn React + TS",
-        description: "learn it all in depth !",
+        titel: inputTitle,
+        description: inputDesc,
         id:Math.random()
       }
-      return [...prev,newGoal]
+      
+      return prev.length ?[...prev,newGoal]:[newGoal]
     })
+    // setInputTitle("");
+    // setInputDesc("");
   }
   /*Delete card */
   function handleDelete(id:number)
@@ -31,11 +37,12 @@ export default function App()
           prev.filter((goalItem:GoalsPropWithId)=>goalItem.id !==id))
   }
     
-  
+  console.log(goals)
    return (
   <main className="">
     <Header image={test}  ><h1 className="">Your Course Goals !</h1> </Header>
-       <button onClick={handleAddNewGoal}>Add Goal</button>
+       {/* <button onClick={handleAddNewGoal}>Add Goal</button> */}
+       <GoalForm handleAddNewGoal={handleAddNewGoal} setInputTitle={setInputTitle} setInputDesc={setInputDesc} />
        <ul>
          <GoalCard goalsArray={goals} onDelete={(id)=> handleDelete(id)} />
          </ul>
