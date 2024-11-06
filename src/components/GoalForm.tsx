@@ -14,8 +14,14 @@ const GoalForm = ({ handleAddNewGoal, setInputTitle,setInputDesc,inputTitle,inpu
     const summaryRef = useRef<HTMLInputElement>(null);
     const handleAddGoal = (event : React.FormEvent<HTMLFormElement>) =>
     {
-        event.preventDefault();
-        handleAddNewGoal();
+            event.preventDefault();
+        
+        if (goalRef.current?.value && summaryRef.current?.value)
+        {
+            handleAddNewGoal();
+            
+        }
+        
        
 
     }
