@@ -45,7 +45,7 @@ export default function App()
     <Header image={test}  ><h1 className="">Your Course Goals !</h1> </Header>
        {/* <button onClick={handleAddNewGoal}>Add Goal</button> */}
        <GoalForm handleAddNewGoal={handleAddNewGoal} setInputTitle={setInputTitle} setInputDesc={setInputDesc} inputTitle={inputTitle} inputDesc={inputDesc} />
-      {  (goals.length>3) && <InfoBox mode="warning" >Don`t provide several goals , u have to arrange ! </InfoBox>}
+      {  (goals.length>1) && <InfoBox mode="warning" sevirity="high" >Don`t provide several goals , u have to arrange ! </InfoBox>}
       
        <ul>
          <GoalCard goalsArray={goals} onDelete={(id)=> handleDelete(id)} />

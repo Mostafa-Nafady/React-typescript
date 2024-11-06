@@ -16,7 +16,7 @@ const GoalCard = ({ goalsArray, onDelete }: GoalCardProb) =>
 console.log("goalsArray",goalsArray)
     return (
       <>
-      {  (goalsArray.length==0) && <InfoBox mode="hint" >Please enter your first goal ! </InfoBox>}
+      {  (goalsArray.length==0) && <InfoBox mode="hint"  >Please enter your first goal ! </InfoBox>}
         {goalsArray.map((goal: GoalsPropWithId) =>
       
            <li className="" key={goal.id}>
