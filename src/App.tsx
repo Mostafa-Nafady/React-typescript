@@ -19,16 +19,17 @@ export default function App()
   {
     setGoals((prev) =>
     {
-      const newGoal:GoalsPropWithId= {
+      const newGoal: GoalsPropWithId = {
         titel: inputTitle,
         description: inputDesc,
-        id:Math.random()
+        id: Math.random()
       }
       
-      return prev.length ?[...prev,newGoal]:[newGoal]
-    })
-    // setInputTitle("");
-    // setInputDesc("");
+      return prev.length ? [...prev, newGoal] : [newGoal]
+    });
+      setInputTitle("");
+    setInputDesc("");
+  
   }
   /*Delete card */
   function handleDelete(id:number)
@@ -42,7 +43,7 @@ export default function App()
   <main className="">
     <Header image={test}  ><h1 className="">Your Course Goals !</h1> </Header>
        {/* <button onClick={handleAddNewGoal}>Add Goal</button> */}
-       <GoalForm handleAddNewGoal={handleAddNewGoal} setInputTitle={setInputTitle} setInputDesc={setInputDesc} />
+       <GoalForm handleAddNewGoal={handleAddNewGoal} setInputTitle={setInputTitle} setInputDesc={setInputDesc} inputTitle={inputTitle} inputDesc={inputDesc} />
        <ul>
          <GoalCard goalsArray={goals} onDelete={(id)=> handleDelete(id)} />
          </ul>
